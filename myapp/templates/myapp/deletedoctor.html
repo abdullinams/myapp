@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h1>Удалить врача</h1>
+    <form method="POST" class="post-form" autocomplete="off">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="deletebutton">Удалить</button>
+
+    </form>
+{% endblock %}

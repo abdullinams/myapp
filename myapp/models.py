@@ -11,9 +11,13 @@ class Post(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
 
+class Doctor(models.Model):
+    name = models.CharField(max_length = 100)
+    phone_number = models.CharField(max_length = 11)
+    work_experience = models.IntegerField()
+    qualification = models.CharField(choices = (('Вторая', 'Вторая'),('Первая','Первая'),('Высшая','Высшая'),),max_length = 100)
+    department = models.CharField(choices = (('Приемное','Приемное'), ('Терапевтическое', 'Терапевтическое')), max_length = 100)
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
-
-    def __str__(self):
-        return self.title
