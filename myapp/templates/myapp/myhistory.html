@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+<div class="deletebutton1">
+  <a href="{% url 'deletedoctor' %}" class="button" type="submit"/>Удалить историю болезни</a>
+</div>
+<div class="addbutton">
+  <a href="{% url 'newhistory' %}" class="button" type="submit"/>Добавить историю болезни</a>
+</div>
+
+<div class="doctor">
+     {% render_table histories %}
+</div>
+
+
+{% endblock %}

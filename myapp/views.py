@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post
-from .models import Doctor
+from .models import *
+from .forms import *
 from django.shortcuts import redirect
 from .forms import PostForm
 from .forms import DoctorForm
 from .forms import DeleteDoctorForm
+from .forms import NurseForm
+from .forms import ClientForm
+from .forms import HistoryForm
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'myapp/post_list.html', {'posts': posts})
@@ -63,3 +66,50 @@ def deletedoctor(request):
     else:
         form = DeleteDoctorForm()
     return render(request, 'myapp/deletedoctor.html', {'form': form})
+
+def mynurse(request):
+    nurses = Nurse.objects.order_by('name')
+    return render(request, 'myapp/mynurse.html', {'nurses': nurses})
+
+
+def newnurse(request):
+    if request.method == "POST":
+        form = NurseForm(request.POST)
+        if form.is_valid():
+            nurse = form.save(commit = False)
+            nurse.save()
+            return redirect('mynurse')
+    else:
+        form = NurseForm()
+    return render(request, 'myapp/newnurse.html', {'form': form})
+
+
+def myclient(request):
+    clients = Client.objects.order_by('name')
+    return render(request, 'myapp/myclient.html', {'clients': clients})
+
+def newclient(request):
+    if request.method == "POST":
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            client = form.save(commit = False)
+            client.save()
+            return redirect('myclient')
+    else:
+        form = ClientForm()
+    return render(request, 'myapp/newclient.html', {'form': form})
+
+def myhistory(request):
+    histories = History.objects.order_by('history_number')
+    return render(request, 'myapp/myhistory.html', {'histories': histories})
+
+def newhistory(request):
+    if request.method == "POST":
+        form = HistoryForm(request.POST)
+        if form.is_valid():
+            history = form.save(commit = False)
+            history.save()
+            return redirect('myhistory')
+    else:
+        form = HistoryForm()
+    return render(request, 'myapp/newhistory.html', {'form': form})

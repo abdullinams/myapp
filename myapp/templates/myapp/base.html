@@ -23,7 +23,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/Medsis">
+				<a href="/mynurse">
 					<div>
 						Медсестры
 					</div>
@@ -31,29 +31,37 @@
 				</div>
 			</li>
 			<li>
-				<a href="/ilness">
+				<a href="/myclient">
 					<div>
-						Истории болезни
+						Журнал пациентов
 					</div>
 				</a>
 			</li>
 			<li>
-				<a href="/clients">
+				<a href="/myhistory">
 					<div>
-						Журнал пациентов
+						Истории болезни
 					</div>
 				</a>
 			</li>
 		</ul>
 	</nav>
 </header>
+
   <div class="content container">
       <div class="row">
           <div class="col-md-8">
           {% block content %}
+
           {% endblock %}
           </div>
       </div>
   </div>
+  <!--<p><img src="/home/maria/myproject/myapp/templates/myapp/medicine.jpg" alt="Письма мастера дзен"></p>-->
+
+  <footer>
+    <div class="address">Адрес: г. Москва, Ленинский проспект, дом 8.</div>
+   <div class="tel">Телефон: +7 (499) 764-50-02</div>
+ </footer>
     </body>
 </html>

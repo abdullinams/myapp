@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h1>Новый пациент</h1>
+    <form method="POST" class="post-form" autocomplete="off">
+      {% csrf_token %}
+      
+      {{ form.non_field_errors }}
+      <div class="fieldWrapper">
+          {{ form.name.errors }}
+          <label for="id_name">ФИО пациента:</label>
+          {{ form.name }}
+      </div>
+      <div class="fieldWrapper">
+          {{ form.history_number.errors }}
+          <label for="id_history_number">Номер истории болезни:</label>
+          {{ form.history_number }}
+      </div>
+      <div class="fieldWrapper">
+          {{ form.enter_date.errors }}
+          <label for="id_enter_date">Дата поступления:</label>
+
+          {{ form.enter_date }}
+      </div>
+        <button type="submit"class="savebutton">Save</button>
+
+    </form>
+{% endblock %}

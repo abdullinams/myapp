@@ -21,3 +21,24 @@ class Doctor(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+
+class Nurse(models.Model):
+    name = models.CharField(max_length = 100)
+    phone_number = models.CharField(max_length = 11)
+    work_experience = models.IntegerField()
+    department = models.CharField(choices = (('Приемное','Приемное'), ('Терапевтическое', 'Терапевтическое')), max_length = 100)
+
+class Client(models.Model):
+    name = models.CharField(max_length = 100)
+    history_number = models.IntegerField()
+    enter_date = models.DateField()
+
+class History(models.Model):
+    history_number = models.IntegerField()
+    name = models.CharField(max_length = 100)
+    birth_date = models.DateField()
+    department = models.CharField(choices = (('Приемное','Приемное'), ('Терапевтическое', 'Терапевтическое')), max_length = 100)
+    attending_doctor = models.CharField(max_length = 100)
+    diagnosis = models.CharField(max_length = 200)
+    ward = models.IntegerField()
+    destination = models.CharField(max_length = 1000)
