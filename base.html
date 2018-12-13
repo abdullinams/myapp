@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+    <head>
+        <title>Городская клиническая больница №1</title>
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+    </head>
+    <body>
+      <div class="page-header">
+
+      <h1><a href="/">Городская клиническая больница №1</a></h1>
+  </div>
+  <header>
+	<nav role="navigation">
+		<ul>
+			<li>
+				<a href="/mydoctor">
+					<div>
+						Врачи
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/mynurse">
+					<div>
+						Медсестры
+					</div>
+				</a><div>
+				</div>
+			</li>
+			<li>
+				<a href="/myclient">
+					<div>
+						Журнал пациентов
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/myhistory">
+					<div>
+						Истории болезни
+					</div>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+  <div class="content container">
+      <div class="row">
+          <div class="col-md-8">
+          {% block content %}
+
+          {% endblock %}
+          </div>
+      </div>
+  </div>
+  <!--<p><img src="/home/maria/myproject/myapp/templates/myapp/medicine.jpg" alt="Письма мастера дзен"></p>-->
+  <div class="wrapper">
+      <p>    г. Москва, Ленинский проспект, дом 8.</p>
+<p> Телефон справочного центра:  +7 (499) 764-50-02</p>
+    <div class="content"></div>
+
+    <div class="footer"></div>
+
+  </div>
+
+    </body>
+</html>

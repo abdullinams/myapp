@@ -1,0 +1,20 @@
+{% extends 'myapp/base.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+<div class="deletebutton1">
+  <a href="{% url 'deletedoctor' %}" class="button" type="submit"/>Удалить врача</a>
+</div>
+<div class="addbutton">
+  <a href="{% url 'newdoctor' %}" class="button" type="submit"/>Добавить врача</a>
+</div>
+
+<div class="doctor">
+     {% render_table doctors %}
+</div>
+<div class = "count">
+  <p>Количество врачей: {{doctors_count}}</p>
+  <p>Количество врачей с высшей квалификацией: {{top_qualification}} </p>
+  <p>Количество врачей в приемном отделении: {{num_admission_department}} </p>
+  <p>Количество врачей в терапевтическом отделении: {{num_therapeutic_department}} </p>
+</div>
+{% endblock %}
